@@ -42,7 +42,8 @@ const Information = () => {
     //console.log(info)
 
     const [data, setData] = useState({})
-    const { id } = useParams({})
+    const { id } = useParams()
+    console.log(id)
 
     const handleSubmit = (e) => {
         e.preventDefult()
@@ -52,13 +53,21 @@ const Information = () => {
     }
     const date = new Date().toLocaleDateString()
 
+
     useEffect(() => {
-        const remain = info.filter((info) => info.id == id)
-        console.log(remain[0])
-        setData(remain[0])
+        // const remain = info.filter((info) => info.id == id)
+        // // console.log(remain[0])
+        // setData(remain[0])
+        fetch(`http://localhost:5000/data/1`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data[0])
+                setData(data[0])
+            })
 
 
-    }, [id])
+
+    }, [])
     return (
         <div className="container">
             <div className="row">
@@ -141,7 +150,7 @@ const Information = () => {
 
                         <label htmlFor="destination">Destination</label>
 
-                        <input onFocus={handleChange} className="form-control" type="text" placeholder="Enter Destination" />
+                        <input onFocus={handleChange} defaultValue={data.name} className="form-control" type="text" placeholder="Enter Destination" />
 
                         <label>From</label>
 
@@ -151,7 +160,7 @@ const Information = () => {
 
                         <input name="to" onFocus={handleChange} required className="form-control" type="date" />
                         <br />
-                        <button className="btn btn-warning form-control">Start Booking</button>
+                        <button type="submit" className="btn btn-warning form-control">Start Booking</button>
                     </form>
                 </div>
             </div>

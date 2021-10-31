@@ -3,20 +3,14 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import './Card.css'
 const CardDetail = ({ tour }) => {
-    console.log(tour.id)
+    //console.log(tour.id)
     return (
         <div className="col-md-6 mt-4">
             <Link to={`/${tour.id}`}>
                 <Card className="bg-dark text-white">
                     <Card.Img className="img-fluid rounded" src={tour.pic} alt="Card image" />
 
-                    {/* <Card.ImgOverlay style={{ margin: 'auto', height: '60px', backgroundColor: 'red' }}>
 
-                    <Card.Text>
-
-                    </Card.Text>
-
-                </Card.ImgOverlay> */}
 
                     <div className="hob">
                         <Card.Title className="bg-muted">{tour.name}<span style={{ float: 'right' }}>{tour.price}</span></Card.Title>
