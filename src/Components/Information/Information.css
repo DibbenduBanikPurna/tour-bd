@@ -1,0 +1,26 @@
+.forms{
+    box-shadow: 2px 2px 2px gray;
+    border: 1px solid gray;
+    height: auto;
+    width: 350px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+@media screen and (max-width:360px) {
+    .forms{
+        width: 290px;
+        margin: auto;
+    }
+    .book{
+        height: 130vh;
+    }
+}
+@media screen and (max-width:320px) {
+    .forms{
+        width: 260px;
+    }
+    .book{
+        height: 150vh;
+    }
+}
