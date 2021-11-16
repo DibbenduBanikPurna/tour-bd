@@ -1,8 +1,9 @@
-export const firebaseConfig = {
-    apiKey: "AIzaSyBVqqf02JedjCDaF-SHCcT8z58BdfdTD94",
-    authDomain: "travel-friend-2cee8.firebaseapp.com",
-    projectId: "travel-friend-2cee8",
-    storageBucket: "travel-friend-2cee8.appspot.com",
-    messagingSenderId: "494626409144",
-    appId: "1:494626409144:web:d5c84206b08ea1689a824d"
+const firebaseConfig = {
+    apiKey: "AIzaSyBSsyG-8MMTc8yo8QFq2ddlkZx7ovbvoNE",
+    authDomain: "travel-friends-fe8a0.firebaseapp.com",
+    projectId: "travel-friends-fe8a0",
+    storageBucket: "travel-friends-fe8a0.appspot.com",
+    messagingSenderId: "950122415756",
+    appId: "1:950122415756:web:7cf84d0d2c9520645ddda9"
 };
+export default firebaseConfig;

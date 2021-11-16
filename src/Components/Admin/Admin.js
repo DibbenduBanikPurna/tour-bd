@@ -1,63 +1,53 @@
 import React, { useState } from 'react';
-import Data from '../Data/Data';
+//import tourData from '../Data/Data';
+
 
 const Admin = () => {
-    const [data, setData] = useState({
-        name: '',
-        id: '',
-        food: '',
-        info: '',
-        package: '',
-        tripPlace: '',
-        price: '',
-        days: ''
-    })
-    console.log(data)
+    const [data, setData] = useState([])
+
+    // const handelPost = () => {
+    //     fetch('http://localhost:5000/tour', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(tourData)
+    //     })
+    // }
+
+    //console.log(data)
     const handleChange = (e) => {
-        setData({
+        const info = {
             [e.target.name]: e.target.value
-        })
+        }
+        setData([...data, info])
+        //console.log(e.target.name, e.target.value)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:5000/tourdata', {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: data.name,
-                id: data.id,
-                food: data.food,
-                info: data.info,
-                package: data.package,
-                tripPlace: data.tripPlace,
-                price: data.price,
-                days: data.days
-            })
-
-        })
+        console.log(data)
 
     }
     return (
-        <div>
+        <div className="text-center">
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} name="name" type="text" placeholder="place name" />
+                <input onFocus={handleChange} name="name" type="text" placeholder="place name" />
                 <br />
-                <input onChange={handleChange} type="number" name="id" placeholder="Id" />
+                <input onFocus={handleChange} type="number" name="id" placeholder="Id" />
                 <br />
-                <textarea onChange={handleChange} name="food" placeholder="Enter Food" />
+                <textarea onFocus={handleChange} name="food" placeholder="Enter Food" />
                 <br />
-                <textarea onChange={handleChange} name="info" placeholder="Description" />
+                <textarea onFocus={handleChange} name="info" placeholder="Description" />
                 <br />
-                <textarea onChange={handleChange} name="package" placeholder="Description" />
+                <textarea onFocus={handleChange} name="package" placeholder="Description" />
                 <br />
-                <textarea onChange={handleChange} name="tripPlace" placeholder="Description" />
+                <textarea onFocus={handleChange} name="tripPlace" placeholder="Description" />
                 <br />
-                <input onChange={handleChange} name="price" type="text" placeholder="price" />
+                <input onFocus={handleChange} name="price" type="text" placeholder="price" />
 
                 <br />
-                <input onChange={handleChange} name="days" type="number" placeholder="days" />
+                <input onFocus={handleChange} name="days" type="number" placeholder="days" />
                 <button className="btn btn-danger" type="submit">Post</button>
             </form>
+            {/* <button onClick={handelPost}>post</button> */}
         </div>
     );
 };

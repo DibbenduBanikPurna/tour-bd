@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 
     Link
 } from "react-router-dom";
 
 const Navbar = () => {
+    const [isTrue, setIsTrue] = useState(true)
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,12 +19,36 @@ const Navbar = () => {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Log-In</Link>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Contact</Link>
+                            <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
+                        {
+                            isTrue ? <> <li className="nav-item">
+                                <Link className="nav-link" to="/myorder">My_Order</Link>
+                            </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/manageorder">ManageOrder</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/manageorder">Log_Out</Link>
+
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link"><img style={{ height: '60px' }} className="img-fluid rounded-circle" alt="" src={sessionStorage.getItem("pic")} /> </Link>
+
+                                </li>  </> : <li className="nav-item">
+                                <Link className="nav-link" to="/login">Log-In</Link>
+
+                            </li>
+                        }
+
+
+
+
+
 
                     </ul>
                 </div>
